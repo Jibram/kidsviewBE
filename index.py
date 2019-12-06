@@ -33,7 +33,7 @@ def get_patients():
         res = db_cursor.fetchall()
 
         # Get results
-        return res
+        return json.dumps(res)
 
 @app.route('/getpatientbyid')
 def get_patient():
@@ -79,7 +79,8 @@ def post_patient():
         db_cursor = conn.cursor()
 
         db_cursor.execute(insert_query)  
-        print(json.dumps(db_cursor.fetchone()))
+
         return "OK"
+
 if __name__ == '__main__':
     app.run(port=5000)
