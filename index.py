@@ -81,7 +81,7 @@ def post_patient():
         db_cursor = conn.cursor()
 
         db_cursor.execute(insert_query)  
-        print(json.dumps(db_cursor.fetchone()))
-        return "OK"
+        #print(json.dumps(db_cursor.fetchone()))
+        return 200
 if __name__ == '__main__':
     app.run(port=5000)
