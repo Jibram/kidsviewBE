@@ -80,7 +80,8 @@ def post_patient():
 
         db_cursor.execute(insert_query)  
 
-        return "OK"
+        db_cursor.execute("SELECT COUNT(*) FROM patients")
+        return(str(db_cursor.fetchone()[0]))
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5001)
